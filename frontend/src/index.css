@@ -1,0 +1,100 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red: #e63946;
+  --red-dark: #B01010;
+  --black: #0a0a0a;
+  --dark: #111111;
+  --mid: #1A1A1A;
+  --card: #181818;
+  --steel: #2A2A2A;
+  --border: #2a2a2a;
+  --zinc: #aaa;
+  --zinc-dim: #888;
+  --white: #F5F0EB;
+  --cream: #E8DFD0;
+  --green: #22c55e;
+  --yellow: #eab308;
+  --blue: #3b82f6;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+a { color: inherit; }
+
+/* ── NOISE OVERLAY ── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .4;
+}
+
+/* ── BUTTONS (shared) ── */
+.btn-primary {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .9rem; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; background: var(--red); color: var(--white);
+  border: none; padding: 1rem 2.6rem; cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  transition: background .2s, transform .2s;
+}
+.btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+.btn-primary:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+.btn-ghost {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .9rem; font-weight: 600; letter-spacing: .15em;
+  text-transform: uppercase; background: transparent;
+  color: var(--zinc); border: 1px solid var(--steel);
+  padding: 1rem 2rem; cursor: pointer; transition: color .2s, border-color .2s;
+}
+.btn-ghost:hover { color: var(--white); border-color: var(--white); }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
+  background: #1a3a1a; color: #4caf50; border: 1px solid #4caf50;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .9rem; font-weight: 600; letter-spacing: .1em;
+  padding: 1rem 2.5rem; z-index: 9000;
+  transition: transform .4s cubic-bezier(.175,.885,.32,1.275);
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s, transform .7s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── SCROLLBAR (subtle, matches dark theme) ── */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--steel); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red); }

@@ -1,0 +1,78 @@
+.analytics-page { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; min-height: 100vh; }
+.analytics-layout { display: flex; min-height: 100vh; }
+
+.analytics-sidebar { width: 230px; background: #0d0d0d; border-right: 1px solid var(--border); padding: 2rem 1.2rem; display: flex; flex-direction: column; gap: .3rem; flex-shrink: 0; }
+.analytics-sidebar-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 1.8rem; padding-left: .5rem; text-decoration: none; color: var(--white); }
+.analytics-sidebar-logo span { color: var(--red); }
+.analytics-nav-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 2px; color: #555; padding: .8rem .9rem .3rem; }
+.analytics-sidebar a, .analytics-sidebar button {
+  display: flex; align-items: center; gap: .75rem; padding: .65rem .9rem; border-radius: 8px;
+  color: var(--zinc); text-decoration: none; font-size: .9rem; font-weight: 500; transition: all .2s;
+  background: none; border: none; cursor: pointer; width: 100%; text-align: left; font-family: 'Barlow', sans-serif;
+}
+.analytics-sidebar a:hover, .analytics-sidebar button:hover { background: rgba(255,255,255,.05); color: var(--white); }
+.analytics-sidebar a.active { background: rgba(230,57,70,.12); color: var(--red); }
+.analytics-sidebar .ico { font-size: 1rem; width: 20px; text-align: center; }
+.analytics-sidebar-bottom { margin-top: auto; }
+
+.analytics-topbar { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; border-bottom: 1px solid var(--border); background: #0d0d0d; }
+.analytics-topbar-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 2px; }
+.analytics-topbar-right { display: flex; align-items: center; gap: 1rem; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #fff; flex-shrink: 0; }
+.analytics-admin-pill { background: rgba(230,57,70,.15); border: 1px solid rgba(230,57,70,.3); color: var(--red); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: .25rem .75rem; border-radius: 20px; }
+
+.analytics-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.analytics-content { padding: 2rem; overflow-y: auto; flex: 1; }
+
+.analytics-section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; color: var(--zinc); margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+
+.analytics-stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.analytics-scard { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.3rem 1.4rem; position: relative; overflow: hidden; }
+.analytics-scard::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; border-radius: 12px 0 0 12px; }
+.analytics-scard.red::before { background: var(--red); }
+.analytics-scard.green::before { background: var(--green); }
+.analytics-scard.yellow::before { background: var(--yellow); }
+.analytics-scard.blue::before { background: var(--blue); }
+.analytics-sc-label { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--zinc); margin-bottom: .5rem; }
+.analytics-sc-val { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--white); line-height: 1; }
+.analytics-sc-sub { font-size: .75rem; color: var(--zinc); margin-top: .3rem; }
+.analytics-sc-trend { font-size: .75rem; margin-top: .4rem; }
+.analytics-sc-trend.up { color: var(--green); }
+.analytics-sc-trend.neutral { color: var(--zinc); }
+
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+@media (max-width: 1100px) { .chart-grid { grid-template-columns: 1fr; } }
+
+.chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+.chart-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: .95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--zinc); margin-bottom: 1.2rem; }
+.chart-wrap { position: relative; height: 220px; }
+.chart-wrap.tall { height: 280px; }
+
+.recent-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.recent-table thead th { color: var(--zinc); text-transform: uppercase; font-size: .68rem; letter-spacing: 1px; padding: .6rem .8rem; text-align: left; border-bottom: 1px solid var(--border); }
+.recent-table tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
+.recent-table tbody tr:last-child { border-bottom: none; }
+.recent-table tbody tr:hover { background: rgba(255,255,255,.025); }
+.recent-table tbody td { padding: .75rem .8rem; color: var(--white); }
+.analytics-badge { display: inline-block; padding: .2rem .6rem; border-radius: 20px; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+.analytics-badge.badge-recruit { background: rgba(100,100,100,.2); color: #aaa; border: 1px solid #333; }
+.analytics-badge.badge-warrior { background: rgba(230,57,70,.15); color: #ff6b75; border: 1px solid rgba(230,57,70,.3); }
+.analytics-badge.badge-elite { background: rgba(234,179,8,.12); color: var(--yellow); border: 1px solid rgba(234,179,8,.25); }
+
+.donut-legend { display: flex; flex-direction: column; gap: .5rem; margin-top: 1rem; }
+.legend-item { display: flex; align-items: center; gap: .6rem; font-size: .82rem; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+.service-bar-list { display: flex; flex-direction: column; gap: .9rem; }
+.sbar-row { display: flex; flex-direction: column; gap: .3rem; }
+.sbar-top { display: flex; justify-content: space-between; font-size: .82rem; }
+.sbar-top span:last-child { color: var(--zinc); }
+.sbar-track { height: 6px; background: #222; border-radius: 3px; overflow: hidden; }
+.sbar-fill { height: 100%; background: var(--red); border-radius: 3px; transition: width .6s ease; }
+
+@media (max-width: 768px) {
+  .analytics-sidebar { width: 60px; padding: 1.2rem .5rem; }
+  .analytics-nav-label, .analytics-sidebar a span:not(.ico), .analytics-sidebar button span:not(.ico), .analytics-sidebar-logo .wm { display: none; }
+  .analytics-sidebar a, .analytics-sidebar button { justify-content: center; padding: .65rem; }
+  .analytics-content { padding: 1rem; }
+}
