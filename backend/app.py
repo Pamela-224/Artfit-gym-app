@@ -438,7 +438,7 @@ def init_db():
             email="admin@artfit.com",
             fname="Admin",
             lname="User",
-            password_hash=hash_password("admin123"),
+            password_hash=hash_password("admin003"),
             is_admin=True,
             created_at=str(datetime.utcnow()),
         )
