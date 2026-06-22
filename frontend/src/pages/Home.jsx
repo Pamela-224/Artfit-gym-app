@@ -319,7 +319,7 @@ const revealRefs = useRef([]);
       <section className="features" id="features">
         <div className="reveal">
           <p className="features-label">The Artfit Experience</p>
-          <h2>BUILT FOR THOSE WHO ARE SERIOUS</h2>
+          <h2>Are you ready to take your fitness to the next level?</h2>
           <p>No mirror jockeys, no watered-down machines. Every inch of our facility is designed for one thing: performance.</p>
         </div>
         <div className="feature-grid reveal">
