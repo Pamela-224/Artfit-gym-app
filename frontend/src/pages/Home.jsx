@@ -252,7 +252,6 @@ const revealRefs = useRef([]);
       </nav>
 
       {/* HERO */}
-      {/* HERO */}
 <section className="hero">
   <div className="hero-bg"></div>
 
