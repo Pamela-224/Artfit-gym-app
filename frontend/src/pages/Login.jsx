@@ -64,6 +64,7 @@ export default function Login() {
 
     setRegSubmitting(true);
     try {
+      const navigate = useNavigate();
       const res = await api.post("/register", {
         fname: regFname.trim(),
         lname: regLname.trim(),
@@ -71,6 +72,9 @@ export default function Login() {
         password: regPassword,
       });
       if (res.data.success) {
+        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data.user));
+        navigate("/dashboard");
         setRegMsg({ type: "ok", text: res.data.message });
         setTimeout(() => setActiveTab("login"), 1500);
       } else {

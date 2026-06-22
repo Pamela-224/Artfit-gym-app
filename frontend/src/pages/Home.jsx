@@ -96,7 +96,7 @@ const PLANS = [
     name: "Recruit",
     price: 39,
     featured: false,
-    features: ["Full gym access", "Locker room & showers", "2 group classes/month", "App access", "Off-peak hours only"],
+    features: ["Full gym access", "Locker room & showers", "2 group classes per month", "App access", "Off-peak hours only"],
   },
   {
     id: "warrior",
@@ -320,7 +320,7 @@ const revealRefs = useRef([]);
         <div className="reveal">
           <p className="features-label">The Artfit Experience</p>
           <h2>Are you ready to take your fitness to the next level?</h2>
-          <p>No mirror jockeys, no watered-down machines. Every inch of our facility is designed for one thing: performance.</p>
+          <p>Join thousands of members who have transformed their lives through our cutting-edge training programs and state-of-the-art facility.</p>
         </div>
         <div className="feature-grid reveal">
           <div className="feature-card"><span className="feature-icon">🏋️</span><h3>Olympic Platforms</h3><p>8 dedicated lifting platforms with calibrated plates and full-length bumper sets.</p></div>
@@ -400,7 +400,7 @@ const revealRefs = useRef([]);
         <div className="signup-copy reveal">
           <p className="label">Free 7-Day Trial</p>
           <h2>READY TO START FORGING?</h2>
-          <p>No commitment. No credit card. Just show up, train hard, and see what Artfit is about.</p>
+          <p>No commitment?No credit card?Just show up, train hard, and see what Artfit is all about.</p>
           <div className="signup-benefits">
             <div className="benefit"><span className="benefit-dot"></span> Full access to all equipment</div>
             <div className="benefit"><span className="benefit-dot"></span> 3 complimentary group classes</div>
@@ -498,7 +498,7 @@ const revealRefs = useRef([]);
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
           <Link to="/login">Member Login</Link>
-          <a href="#">Contact</a>
+          <a href="contact">Contact</a>
         </div>
       </footer>
 

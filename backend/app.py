@@ -136,8 +136,15 @@ def register():
     db.session.add(user)
     db.session.commit()
 
-    return jsonify({"success": True, "message": "Registered successfully"})
+    # 🔥 THIS MUST BE INSIDE THE FUNCTION
+    token = create_access_token(identity=str(user.id))
 
+    return jsonify({
+        "success": True,
+        "message": "Registered successfully",
+        "token": token,
+        "user": user.to_dict()
+    })
 
 @app.route("/api/login", methods=["POST"])
 def login():
