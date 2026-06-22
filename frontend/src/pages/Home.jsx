@@ -3,7 +3,29 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import api from "../api/client";
 import "./Home.css";
+function useCountUp(target, duration = 1500) {
+  const [value, setValue] = useState(0);
 
+  useEffect(() => {
+    let start = 0;
+    const step = target / (duration / 16);
+
+    const timer = setInterval(() => {
+      start += step;
+
+      if (start >= target) {
+        start = target;
+        clearInterval(timer);
+      }
+
+      setValue(Math.floor(start));
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [target, duration]);
+
+  return value;
+}
 const SERVICES = [
   "Personal Training",
   "Yoga",
@@ -116,8 +138,13 @@ export default function Home() {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [showToast, setShowToast] = useState(false);
-  const revealRefs = useRef([]);
 
+// animated stats
+const members = useCountUp(15000);
+const classes = useCountUp(48);
+const years = useCountUp(12);
+
+const revealRefs = useRef([]);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -225,28 +252,59 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section className="hero">
-        <div className="hero-bg"></div>
-        <div className="hero-tagline">EST. 2009 — DOWNTOWN</div>
-        <div className="hero-content">
-          <p className="hero-eyebrow">ARTFIT Gym — Where Champions Train</p>
-          <h1>FORGE<br />YOUR <em>LIMITS</em></h1>
-          <p className="hero-sub">
-            Elite training, world-class equipment, and coaches who push you past what you
-            thought possible. No excuses. Just results.
-          </p>
-          <div className="hero-actions">
-            <button className="btn-primary" onClick={() => scrollToId("signup")}>Start Free Trial</button>
-            <button className="btn-ghost" onClick={() => scrollToId("plans")}>View Plans</button>
-          </div>
-        </div>
-        <div className="hero-stats">
-          <div className="stat"><div className="stat-num">15<span>K</span></div><div className="stat-label">Members</div></div>
-          <div className="stat"><div className="stat-num">48<span>+</span></div><div className="stat-label">Classes/Week</div></div>
-          <div className="stat"><div className="stat-num">12<span>+</span></div><div className="stat-label">Years Strong</div></div>
-        </div>
-      </section>
+      {/* HERO */}
+<section className="hero">
+  <div className="hero-bg"></div>
 
+  <div className="hero-tagline">Welcome to ARTFIT</div>
+
+  <div className="hero-content">
+    <p className="hero-eyebrow">ARTFIT Gym — Where Champions Train</p>
+
+    <h1>
+      FORGE<br />
+      YOUR <em>LIMITS</em>
+    </h1>
+
+    <p className="hero-sub">
+      Elite training, world-class equipment, and coaches who push you past what you
+      thought possible. No excuses. Just results.
+    </p>
+
+    <div className="hero-actions">
+      <button className="btn-primary" onClick={() => scrollToId("signup")}>
+        Start Free Trial
+      </button>
+      <button className="btn-ghost" onClick={() => scrollToId("plans")}>
+        View Plans
+      </button>
+    </div>
+  </div>
+
+  {/* HERO STATS (FIXED + CLEAN) */}
+  <div className="hero-stats">
+    <div className="stat">
+      <div className="stat-num">
+        {Math.floor(members / 1000)}<span>K</span>
+      </div>
+      <div className="stat-label">Members</div>
+    </div>
+
+    <div className="stat">
+      <div className="stat-num">
+        {classes}<span>+</span>
+      </div>
+      <div className="stat-label">Classes/Week</div>
+    </div>
+
+    <div className="stat">
+      <div className="stat-num">
+        {years}<span>+</span>
+      </div>
+      <div className="stat-label">Years Strong</div>
+    </div>
+  </div>
+</section>
       {/* MARQUEE */}
       <div className="marquee-bar">
         <div className="marquee-track">
