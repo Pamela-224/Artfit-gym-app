@@ -266,7 +266,7 @@ const revealRefs = useRef([]);
     </h1>
 
     <p className="hero-sub">
-      Elite training, world-class equipment, and coaches who push you past what you
+      We offer Elite training, world-class equipment, and coaches who push you past what you
       thought possible. No excuses. Just results.
     </p>
 
