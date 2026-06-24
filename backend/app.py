@@ -103,7 +103,16 @@ def get_current_user_id():
         return int(identity)
     except (TypeError, ValueError):
         return None
-
+# =========================
+# HOME ROUTE
+# =========================
+@app.route("/")
+def home():
+    return jsonify({
+        "success": True,
+        "message": "ArtFit Gym API is running",
+        "version": "1.0"
+    })
 # =========================
 # AUTH
 # =========================
@@ -458,4 +467,6 @@ def init_db():
 # RUN
 # =========================
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True, port=5000, host="0.0.0.0")
